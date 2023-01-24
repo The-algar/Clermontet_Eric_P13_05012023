@@ -48,7 +48,10 @@ Les 2 utilisateurs enregistrés dans la base de donnée:
 - En se plaçant dans ce repo du _front-end_, installer ses dépendances : `npm install`
 - Lancer le _front-end_ sur le port 3000 : `npm start`
 
+### Modèle API côté back-end
 
+- [Swagger](https://editor.swagger.io/)
 
-### `Accéder à la documentation swagger du _front-end_ Argent Bank`
+### `Accéder à la documentation swagger Argent Bank V1`
+
 - https://app.swaggerhub.com/apis/The-algar/argent_bank_api_documentation/1.0.0
