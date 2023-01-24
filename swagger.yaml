@@ -117,40 +117,40 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
-  /transactions/getTranssaction:
+  /transactions/getTransaction:
     get:
-      tags:
-      - Transaction Module
-      summary: Transactions API
-      description: API for fetching list of the month ask
-      produces:
-      - application/json
-      parameters:
-      - name: Month
-        in: query
-        description: search this month
-        required: true
-        type: string
-      - name: Year
-        in: query
-        description: indicate the year of research
-        required: true
-        type: string
-      - name: Authorization
-        in: header
-        description: Attach Bearer JWT token
-        required: true
-        type: string
       security:
-      - Bearer: []
+        - Bearer: []
+      tags:
+        - Transaction Module
+      summary: Transactions API
+      description: API for fetching list of the month requests
+      parameters:
+        - in: query
+          type: string
+          name: Month
+          description: search this month
+          required: true
+        - in: query
+          type: string
+          name: Year
+          description: indicate the year of search
+          required: true
+        - in: header
+          type: string
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+      produces:
+        - application/json
       responses:
-        "200":
+        '200':
           description: transactions month retrieved successully
           schema:
             $ref: '#/definitions/GetTransactionsResponse'
-        "400":
+        '400':
           description: Invalid Fields
-        "500":
+        '500':
           description: Internal Server Error
   /transactions/{transactionID}:
     get:
@@ -169,7 +169,7 @@ paths:
         type: string
       - name: transactionID
         in: path
-        description: ID of transaction to be look
+        description: ID of transaction to be looked for
         required: true
         type: integer
         format: int64
@@ -188,7 +188,7 @@ paths:
       tags:
       - Transaction Module
       summary: Transaction API
-      description: update a transaction to the database
+      description: update a transaction in the database
       operationId: updateTransactionById
       produces:
       - application/json
@@ -225,7 +225,7 @@ paths:
       tags:
       - Transaction Module
       summary: Transaction API
-      description: delete a transaction to the database
+      description: delete a transaction in the database
       operationId: deleteTransactionById
       produces:
       - application/json
@@ -237,7 +237,7 @@ paths:
         type: string
       - name: transactionID
         in: path
-        description: ID of transaction update
+        description: ID of transaction's update
         required: true
         type: integer
         format: int64
@@ -255,7 +255,7 @@ paths:
       tags:
       - Transaction Module
       summary: Transaction API
-      description: add a transaction to the database
+      description: add a transaction in the database
       produces:
       - application/json
       parameters:
@@ -274,7 +274,7 @@ paths:
       - Bearer: []
       responses:
         "200":
-          description: transaction add successully
+          description: transaction added successully
           schema:
             $ref: '#/definitions/AddTransactionResponse'
         "400":
