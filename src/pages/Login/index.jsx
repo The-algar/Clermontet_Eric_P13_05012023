@@ -25,6 +25,7 @@ export default function SignIn(){
   async function  getUserAxios(){
       const axios = await axiosProfile(stateReduxToken)         
       dispatch(connectionActions?.getUser({firstName:axios.firstName, lastName:axios.lastName}))
+
       console.log(axios.firstName, axios.lastName);
   }
   
@@ -51,21 +52,21 @@ export default function SignIn(){
   return ( 
     <Main className='bg'>
       <SignInContent>
-        <i className='fa fa-user-circle sign-in-icon'></i>
+        <SignInIcon className='fa fa-user-circle sign-in-icon'></SignInIcon>
         <h1>Sign In</h1>
         <form>
           <InputWrapper>
-            <Label htmlFor='email'>Email</Label>
-            <Input type='text' id='username' onChange={(e) => setEmail(e.target.value)} />
+            <label htmlFor='email' style={{ weight: 'bold' }}>Email</label>
+            <input type='text' id='username' onChange={(e) => setEmail(e.target.value)} style={{ padding: 5, fontSize: '1.2rem' }}/>
           </InputWrapper>
           <InputWrapper>
-            <Label htmlFor='password'>Password</Label>
-            <Input type='password' id='password' onChange={(e) => setPassword(e.target.value)} />
+            <label htmlFor='password'  style={{ weight: 'bold' }}>Password</label>
+            <input type='password' id='password' onChange={(e) => setPassword(e.target.value)} style={{ padding: 5, fontSize: '1.2rem' }}/>
           </InputWrapper>
           <InputRemember className='input-remember'>
-            <Label htmlFor='remember-me'>
-              <Input type='checkbox' id='remember-me' />Remember me
-            </Label>
+            <label htmlFor='remember-me' style={{ weight: 'bold' }}>
+              <input type='checkbox' id='remember-me' style={{ padding: 5, fontSize: '1.2rem' }}/>Remember me
+            </label>
           </InputRemember>
           <SignInBtn type='button' onClick={() => submit()}>Sign In</SignInBtn>
         </form>
@@ -76,6 +77,7 @@ export default function SignIn(){
 
 const Main = styled.main`
   background-color: #12002b;
+  min-width: 350px;
   padding-top: 2rem;
   height: 80vh;
 `;
@@ -88,21 +90,17 @@ const SignInContent = styled.section`
   padding: 2rem;
   margin-top: 1rem;
 `;
-
+const SignInIcon = styled.i`
+display: flex;
+justify-content: center;
+font-size: 5rem;
+margin: 0 auto;
+`
 const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-bottom: 1rem;
-`;
-
-const Label = styled.label`
-  font-weight: bold;
-`;
-
-const Input = styled.input`
-  padding: 5px;
-  font-size: 1.2rem;
 `;
 
 const InputRemember = styled.div`

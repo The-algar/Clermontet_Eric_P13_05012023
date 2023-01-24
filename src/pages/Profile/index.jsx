@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { axiosPutUser } from '../../data/callApi';
-import * as connectionActions from '../../data/connexion';
-import transactionsData from "../../data/transactions";
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { axiosPutUser } from '../../data/callApi'
+import * as connectionActions from '../../data/connexion'
+import transactionsData from "../../data/transactions"
 import Card from '../../components/Card'
 import styled from 'styled-components'
 import { EditBtn } from '../../utils/style/Slinks'
@@ -44,25 +44,25 @@ export default function UserProfile() {
                 displayEditName ? (
                   <>
                     <h1>Welcome back</h1>
-                    <form >
-                      <FormFirstLine className='form-first-line'>
-                        <label htmlFor="firstName" >
-                          <InputNew type="text" id="firstName" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} />
-                        </label>
+                      <form >
+                        <FormFirstLine className='form-first-line'>
+                            <label htmlFor="firstName">
+                                <InputNew type="text" className="input-new" id="firstName" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} />
+                            </label>
 
-                        <label htmlFor="lastName">
-                          <InputNew type="text" id="lastName" placeholder='Last Name'onChange={(e) => setLastName(e.target.value)} />
-                        </label>
-                      </FormFirstLine>
-                      <FormSecondLine className='form-second-line'>
-                        <EditBtn onClick={() => editUser()}>
-                            Save
-                        </EditBtn>
-                        <EditBtn onClick={() => displayFormEdit()}>
-                            Cancel
-                        </EditBtn>
-                      </FormSecondLine>
-                    </form>
+                            <label htmlFor="lastName">
+                                <InputNew type="text" id="lastName" className='input-new' placeholder='Last Name' onChange={(e) => setLastName(e.target.value)} />
+                            </label>
+                        </FormFirstLine>
+                        <FormSecondLine className='form-second-line'>
+                          <button type='button' className='button-edit' onClick={() => editUser()}>
+                              Save
+                          </button>
+                          <button type='button' className='button-edit' onClick={() => displayFormEdit()}>
+                              Cancel
+                          </button>
+                        </FormSecondLine>
+                      </form>
                   </>
               ) : (
                   <>
@@ -118,7 +118,7 @@ const InputNew = styled.input`
     height: 2rem;
     margin: 0.5rem;
 `
-const FormFirstLine = styled.div`
+const FormSecondLine = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -131,8 +131,15 @@ const FormFirstLine = styled.div`
     flex-direction: column;
     gap: 0;
     } 
+  & button {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.5rem;
+  color: rgb(255, 255, 255);
+  background-color: #00bc77;
+  }
 `
-const FormSecondLine = styled.div`
+const FormFirstLine = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;

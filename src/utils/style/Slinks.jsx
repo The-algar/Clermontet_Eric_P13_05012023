@@ -32,7 +32,7 @@ export const StyledLink = styled(NavLink)`
     text-decoration: underline;
   }
 `
-export const ErrorBtn = styled(Link)`
+export const ErrorBtn = styled.button`
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -72,7 +72,7 @@ export const TransactionBtn = styled.button`
 export const EditBtn = styled.button`
   display: block;
   text-align: center;
-  width: 10rem;
+  width: 100%;
   padding: 10px;
   margin-top: 1rem;
   border-color: ${colors.errorBtn};
@@ -88,7 +88,8 @@ export const EditBtn = styled.button`
 `
 export const SignInBtn = styled(Link)`
   display: block;
-  width: 220px;
+  text-align: center;
+  width: 13.75rem;
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -110,7 +111,24 @@ export const LoginFirstName = styled(Link)`
   font-size: 17px; 
   margin-right: 0.3rem;
   text-decoration: none;
+  // &:hover {
+  //   text-decoration: underline;
+  // }
+`
+export const SaveBtn = styled.button`
+  display: block;
+  text-align: center;
+  width: 10rem;
+  padding: 10px;
+  margin-top: 1rem;
+  border-color: ${colors.errorBtn};
+  background-color: ${colors.errorBtn};
+  border-width: 2px;
+  border-style: outset;
+  color: #fff;
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
+    font-weight: bold;
   }
 `

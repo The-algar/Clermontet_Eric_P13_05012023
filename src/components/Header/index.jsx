@@ -36,8 +36,7 @@ export default function Header() {
         <NavContainerItem>
           {isConnected?(
             <>
-          <LoginFirstName 
-            to="/profile" className="NavContainerItem">
+          <LoginFirstName className="NavContainerItem"> {/* to="/profile"  */}
             <i className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
             {firstName}
           </LoginFirstName>
@@ -47,12 +46,12 @@ export default function Header() {
             Sign Out
           </StyledSignOut></>
           ):( 
-          <LoginFirstName 
+          <StyledSignIn 
             to="/login" className="NavContainerItem">
             <i 
               className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
             Sign In
-          </LoginFirstName>
+          </StyledSignIn>
           )
 
           }
@@ -64,6 +63,7 @@ export default function Header() {
 const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
+  min-width: 300px;
   align-items: center;
   padding: 5px 20px;
   &.a {
@@ -71,9 +71,9 @@ const NavContainer = styled.nav`
     font-size: 2rem;
     color: #2c3e50;
   }
-  &:hover {
-    text-decoration: underline;
-  }
+  // &:hover {
+  //   text-decoration: underline;
+  // }
   @media screen and (max-width: 768px) {
     font-weight: 200;
     font-size: 0.9rem;
@@ -85,12 +85,24 @@ const NavContainerItem = styled(Link)`
   margin-right: 0.7rem;
   &.a {
     font-size: 2rem;
-  }
-  &:hover {
-    text-decoration: underline;
-  }
+  // &:hover {
+  //   text-decoration: underline;
+  // }
 `
 const StyledSignOut = styled(Link)`
+  background-color: ${colors.backgroundLight}; 
+  border: none;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 17px;
+  margin-right: 0.3rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  } 
+`
+
+const StyledSignIn = styled(Link)`
   background-color: ${colors.backgroundLight}; 
   border: none;
   font-weight: bold;
