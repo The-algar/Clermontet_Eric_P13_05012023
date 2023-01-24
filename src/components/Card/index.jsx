@@ -1,20 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TransactionBtn } from '../../utils/style/Slinks'
+import PropTypes from 'prop-types'
 
 /**show card 
  *  
  * @returns {JSX}
  */
 
- export default function Card(){
+ const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+   })
+
+ export default function Card({ transaction }){
 
   return ( 
         <Account>
             <AccountContentWrapper>
-                <AccountTitle>Argent Bank Savings (x6712)</AccountTitle>
-                <AccountAmount>$10,928.42</AccountAmount>
-                <AccountAmountLabel>Available Balance</AccountAmountLabel>
+                <AccountTitle>Argent Bank Savings {transaction.type}</AccountTitle>
+                <AccountAmount>{formatter.format(transaction.amount)}</AccountAmount>
+                <AccountAmountLabel>Available {transaction.balance}</AccountAmountLabel>
             </AccountContentWrapper>
             <CTA className="account-content-wrapper cta">
                 <TransactionBtn>View transactions</TransactionBtn>
@@ -23,6 +30,15 @@ import { TransactionBtn } from '../../utils/style/Slinks'
   )   
 
 }
+
+Card.propTypes = {
+  transaction: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    balance: PropTypes.string.isRequired
+  }).isRequired
+}
+
 
 const Account = styled.section`
     display: flex;

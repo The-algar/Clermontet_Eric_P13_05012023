@@ -7,26 +7,26 @@ import iconSecurity from '../../assets/icon-security.png'
 /**show item feature
  *
  * @name Features
- *  @param {object} props.element
- *  @param {string} props.element.img
- *  @param {string} props.element.title
- *  @param {string} props.element.text
+ * @param {object} props.element
+ * @param {string} props.element.img
+ * @param {string} props.element.title
+ * @param {string} props.element.text
  * @returns {JSX}
  */
 
 export default function Features(props) {
-  let variableImg
+  let image = "";
   switch (props.element.img) {
     case 'pictureChat':
-      variableImg = iconChat
+      image = iconChat
       break
 
     case 'pictureMoney':
-      variableImg = iconMoney
+      image = iconMoney
       break
 
     case 'pictureSecurity':
-      variableImg = iconSecurity
+      image = iconSecurity
       break
 
     default:
@@ -34,14 +34,24 @@ export default function Features(props) {
   }
 
   return (
-    <FeatureItems>
-      <FeatureIcons src={variableImg} alt="Chat Icon" />
-      <FeatureTitle>{props.element.title}</FeatureTitle>
-      <p>{props.element.text}</p>
-    </FeatureItems>
+    <>
+      <FeatureItems>
+        <FeatureIcons src={image} alt="Chat Icon" />
+        <FeatureTitle>{props.element.title}</FeatureTitle>
+        <p>{props.element.text}</p>
+      </FeatureItems>
+    </>
   )
 }
 
+const FeatureItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2.5rem;
+`
 const FeatureIcons = styled.img`
   width: 75px;
   border: 10px solid #00bc77;
@@ -50,14 +60,6 @@ const FeatureIcons = styled.img`
   @media screen and (min-width: 920px) {
     width: 100px;
   }
-`
-const FeatureItems = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 2.5rem;
 `
 const FeatureTitle = styled.h3`
   color: #222;

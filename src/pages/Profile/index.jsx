@@ -1,22 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { axiosPutUser } from '../../data/callApi';
+import * as connectionActions from '../../data/connexion';
+import transactionsData from "../../data/transactions";
 import Card from '../../components/Card'
 import styled from 'styled-components'
 import { EditBtn } from '../../utils/style/Slinks'
 import colors from '../../utils/style/colors'
-// import './Profile.css'
-
-
-let tab=[
-    {
-        id:1,
-    },
-    {
-        id:2,
-    },
-    {
-        id:3,
-    },                       
-]
 
 /**Export User Profile Page
  * 
@@ -25,41 +16,133 @@ let tab=[
  */
 
 export default function UserProfile() {
-  return (
-    <MainProfil className="toto">
-      <TitleWelcome className="tata">
-        <h1>Welcome back<br /> Tony Jarvis!</h1>
-        <EditBtn className="edit-button">Edit Name</EditBtn>
-      </TitleWelcome>
-      <h2 className="sr-only">Accounts</h2>
-      {tab.map((elt) => (
-        <Card key={elt.id} />
-      ))}
-    </MainProfil>
-  )
+
+    const stateReduxFirstName = useSelector((state) => state.connection.firstName)
+    const stateReduxLastName = useSelector((state) => state.connection.lastName)
+    const stateReduxToken = useSelector((state) => state.connection.token)
+    const [firstName, setFirstName] = useState()
+    const [lastName, setLastName] = useState()
+    const [displayEditName, setdisplayEditName] = useState(false)
+    const dispatch = useDispatch()
+
+    function displayFormEdit() {
+
+      setdisplayEditName(!displayEditName)
+    }
+      async function editUser() {
+      const axios = await axiosPutUser(stateReduxToken, { firstName, lastName })
+      dispatch(connectionActions.getUser({ firstName: axios.firstName, lastName: axios.lastName }))
+      setdisplayEditName(!displayEditName)
+    }
+
+    if (stateReduxToken) {
+    return (
+      <>
+        <MainProfil>
+          <TitleWelcome>
+              {
+                displayEditName ? (
+                  <>
+                    <h1>Welcome back</h1>
+                    <form >
+                      <FormFirstLine className='form-first-line'>
+                        <label htmlFor="firstName" >
+                          <InputNew type="text" id="firstName" placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} />
+                        </label>
+
+                        <label htmlFor="lastName">
+                          <InputNew type="text" id="lastName" placeholder='Last Name'onChange={(e) => setLastName(e.target.value)} />
+                        </label>
+                      </FormFirstLine>
+                      <FormSecondLine className='form-second-line'>
+                        <EditBtn onClick={() => editUser()}>
+                            Save
+                        </EditBtn>
+                        <EditBtn onClick={() => displayFormEdit()}>
+                            Cancel
+                        </EditBtn>
+                      </FormSecondLine>
+                    </form>
+                  </>
+              ) : (
+                  <>
+                    <h1>Welcome back<br />{stateReduxFirstName + " " + stateReduxLastName} !</h1>
+                    <EditBtn onClick={() => displayFormEdit()}>Edit Name</EditBtn>
+                  </>
+                  )
+              }
+          </TitleWelcome>
+              <h2 className="sr-only">Accounts</h2>
+              {transactionsData.map((transaction) => {
+              return <Card transaction={transaction} key={transaction._id} />;
+            })}
+        </MainProfil>
+      </>
+    )
+  }
 }
 
 const StyledDarkBg = styled.div`
-    min-width: 350px;
-    background-color: ${colors.DarkBg};
+  background-color: ${colors.DarkBg};
 `
 const MainProfil = styled(StyledDarkBg)`
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: center;
     @media (min-width: 720px) {
     height: 85vh;
     }
     @media (max-width: 720px) {
-      height: 91vh;
-}  
+      height: 100vh;
+    }  
 `
 const StyledHeader = styled.div`
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
 `
 const TitleWelcome = styled(StyledHeader)`
-    display: flex;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+`
+const InputNew = styled.input`
+    width: 10rem;
+    height: 2rem;
+    margin: 0.5rem;
+`
+const FormFirstLine = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 350px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 1rem;
+  @media (max-width: 384px) {
     flex-direction: column;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    padding-top: 1rem;
-    margin-bottom: 2rem;
+    gap: 0;
+    } 
+`
+const FormSecondLine = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 350px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 1rem;
+  @media (max-width: 384px) {
+    flex-direction: column;
+    gap: 0;
+    } 
 `

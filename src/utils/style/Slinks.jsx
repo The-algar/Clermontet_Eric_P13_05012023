@@ -26,7 +26,10 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   font-size: 1rem;
   text-align: center;
-  margin:0!important;
+  margin-right: 0.3rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
 `
 export const ErrorBtn = styled(Link)`
@@ -44,7 +47,7 @@ export const ErrorBtn = styled(Link)`
   border-style: outset;
   color: #fff;
 `
-export const TransactionBtn = styled(Link)`
+export const TransactionBtn = styled.button`
   display: block;
   text-align: center;
   width: 100%;
@@ -66,10 +69,10 @@ export const TransactionBtn = styled(Link)`
     }
 `
 
-export const EditBtn = styled(Link)`
+export const EditBtn = styled.button`
   display: block;
   text-align: center;
-  width: 5rem;
+  width: 10rem;
   padding: 10px;
   margin-top: 1rem;
   border-color: ${colors.errorBtn};
@@ -93,6 +96,19 @@ export const SignInBtn = styled(Link)`
   border-color: ${colors.errorBtn};
   background-color: ${colors.errorBtn};
   color: #fff;
+  margin-right: 0.3rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+export const LoginFirstName = styled(Link)`
+  background-color: ${colors.backgroundLight}; 
+  border: none;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 17px; 
+  margin-right: 0.3rem;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
