@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from 'react';
 import * as connectionActions from '../../data/connexion';
-import { axiosToken, axiosProfile } from '../../data/callApi';
+import callApi from '../../data/callApi';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -15,39 +15,29 @@ import colors from '../../utils/style/colors'
  */
 
 export default function SignIn(){
-
-  const dispatch = useDispatch()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  const history = useNavigate()
-  const stateReduxToken = useSelector((state) => state.connection.token)
-
-  async function  getUserAxios(){
-      const axios = await axiosProfile(stateReduxToken)         
-      dispatch(connectionActions?.getUser({firstName:axios.firstName, lastName:axios.lastName}))
-
-      console.log(axios.firstName, axios.lastName);
-  }
-  
-  async function submit(){
-
-      console.log({email,password})
-
-      const responseAxios = await axiosToken({email,password})
-      // console.log('Axios return:', responseAxios);
-
-      if(responseAxios){
-          dispatch(connectionActions.getToken({token:responseAxios,email:email}))
-      }
-  }
-  
-  useEffect(()=>{
-      if(stateReduxToken){      
-          getUserAxios()  
-          history("/profile")
-      }
-
-  })
+    const dispatch = useDispatch()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const history = useNavigate()
+    const stateReduxToken = useSelector((state)=>state.connection.token)
+    async function  getUserAxios(){
+        const axios = await callApi.axiosProfile(stateReduxToken)          
+        dispatch(connectionActions.getUser({firstName:axios.firstName,lastName:axios.lastName}))
+    }
+    
+    async function submit(){
+        const responseAxios = await callApi.axiosToken({email,password})
+        if(responseAxios){
+            dispatch(connectionActions.getToken({token:responseAxios,email:email}))
+        }
+    }
+    
+    useEffect(()=>{
+        if(stateReduxToken){      
+            getUserAxios()  
+            history("/profile")
+        }
+    },[stateReduxToken])
 
   return ( 
     <Main className='bg'>

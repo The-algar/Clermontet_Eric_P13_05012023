@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { axiosPutUser } from '../../data/callApi'
+import callApi from '../../data/callApi'
 import * as connectionActions from '../../data/connexion'
 import transactionsData from "../../data/transactions"
 import Card from '../../components/Card'
@@ -16,7 +16,6 @@ import colors from '../../utils/style/colors'
  */
 
 export default function UserProfile() {
-
     const stateReduxFirstName = useSelector((state) => state.connection.firstName)
     const stateReduxLastName = useSelector((state) => state.connection.lastName)
     const stateReduxToken = useSelector((state) => state.connection.token)
@@ -26,15 +25,15 @@ export default function UserProfile() {
     const dispatch = useDispatch()
 
     function displayFormEdit() {
-
-      setdisplayEditName(!displayEditName)
-    }
-      async function editUser() {
-      const axios = await axiosPutUser(stateReduxToken, { firstName, lastName })
-      dispatch(connectionActions.getUser({ firstName: axios.firstName, lastName: axios.lastName }))
-      setdisplayEditName(!displayEditName)
+        setdisplayEditName(!displayEditName)
     }
 
+    async function editUser() {
+        const axios = await callApi.axiosPutUser(stateReduxToken, { firstName, lastName })
+        dispatch(connectionActions.getUser({ firstName: axios.firstName, lastName: axios.lastName }))
+  
+        setdisplayEditName(!displayEditName)
+    }
     if (stateReduxToken) {
     return (
       <>

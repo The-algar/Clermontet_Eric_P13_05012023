@@ -4,47 +4,34 @@ const apiUrl = axios.create({
     baseURL: `http://localhost:3001/api/v1`
 }); 
 
-//find the token
-export const axiosToken = async (params) =>{
-    try{
+class callApi {
+ 
+    //find the token
+    axiosToken = async (params) =>{
         const response = await apiUrl.post('/user/login', params);
-        
-        return response.data.body.token;
-
-    }catch(e){
-        console.log(e);
+        return response.data.body.token; 
     }
-}
 
-//look up user information
-export const axiosProfile = async(token) =>{
-    try{
+    //look up user information
+     axiosProfile = async (token) =>{
         const response = await apiUrl.post('/user/profile', {}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(response)
-        console.log(response.data.body)
-
         return response.data.body;
-    } catch(e) {
-        console.log(e);
     }
-}
 
-//edit user information
-export const axiosPutUser = async (token,newUser) =>{
-    try{
+    //edit user information
+    axiosPutUser = async (token,newUser) =>{
         const response = await apiUrl.put('/user/profile', newUser, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(newUser)
-        
         return response.data.body;
-    }catch(e){
-        console.log(e);
-    }
+    } 
+
 }
+
+export default new callApi();
