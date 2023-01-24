@@ -30,17 +30,17 @@ export const StyledLink = styled(NavLink)`
   }
 `
 export const ErrorBtn = styled(Link)`
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    text-decoration: none;
-    text-align: center;
-    width: 15rem;
-    padding: 15px;
-    margin-top: 1rem;
-    border-color: ${colors.errorBtn};
-    background-color: ${colors.errorBtn};
-    border-width: 2px;
-    border-style: outset;
-    color: #fff;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-decoration: none;
+  text-align: center;
+  width: 15rem;
+  padding: 15px;
+  margin-top: 1rem;
+  border-color: ${colors.errorBtn};
+  background-color: ${colors.errorBtn};
+  border-width: 2px;
+  border-style: outset;
+  color: #fff;
 `
