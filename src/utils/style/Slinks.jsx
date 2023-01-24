@@ -44,3 +44,57 @@ export const ErrorBtn = styled(Link)`
   border-style: outset;
   color: #fff;
 `
+export const TransactionBtn = styled(Link)`
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: ${colors.errorBtn};
+  background-color: ${colors.errorBtn};
+  border-width: 2px;
+  border-style: outset;
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media (min-width: 720px) {
+      width: 200px;
+    }
+`
+
+export const EditBtn = styled(Link)`
+  display: block;
+  text-align: center;
+  width: 5rem;
+  padding: 10px;
+  margin-top: 1rem;
+  border-color: ${colors.errorBtn};
+  background-color: ${colors.errorBtn};
+  border-width: 2px;
+  border-style: outset;
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+`
+export const SignInBtn = styled(Link)`
+  display: block;
+  width: 220px;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: ${colors.errorBtn};
+  background-color: ${colors.errorBtn};
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`

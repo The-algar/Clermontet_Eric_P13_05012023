@@ -6,6 +6,8 @@ import './index.css'
 import Home from './pages/Home'
 import Error from './pages/Error'
 import Footer from './components/Footer'
+import SignIn from './pages/Login';
+import UserProfile from './pages/Profile';
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -15,6 +17,8 @@ root.render(
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/login" element={ <SignIn />} />
+        <Route path="/profile" element={ <UserProfile/>} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

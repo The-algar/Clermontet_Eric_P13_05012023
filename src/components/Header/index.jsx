@@ -19,14 +19,14 @@ export default function Header() {
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
         <NavContainerItem>
-          <StyledLink to="/profile" className="NavContainerItem">
+          <StyledLink to="/login" className="NavContainerItem">
             <i
               className="fa fa-user-circle"
               style={{ marginRight: '0.3rem' }}
             ></i>
             Sign in
           </StyledLink>
-          <StyledLink to="/login" className="NavContainerItem">
+          <StyledLink to="/" className="NavContainerItem">
             <i className="fa fa-sign-out" style={{ marginRight: '0.3rem' }}></i>
             Sign Out
           </StyledLink>
