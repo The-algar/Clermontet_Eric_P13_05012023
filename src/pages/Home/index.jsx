@@ -33,7 +33,7 @@ const informationFeature = [
 export default function Home() {
   return (
     <>
-      <main>
+      <main style={{ minWidth: 450 }}>
         <Banner />
         <FeatureWrapper>
           <h2 className="sr-only">Features</h2>

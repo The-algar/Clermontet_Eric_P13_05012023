@@ -1,8 +1,7 @@
 import React from 'react'
-// import './Error.css';
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { ErrorBtn } from '../../utils/style/Slinks'
+import { Link } from 'react-router-dom';
 import colors from '../../utils/style/colors'
 
 /**
@@ -20,9 +19,9 @@ function Error() {
       <ErrorMessage>
         Whoops! The page you requested does not exist.
       </ErrorMessage>
-      <ErrorBtn to="/">
-        <ErrorBtnTxt>Return to the homepage</ErrorBtnTxt>
-      </ErrorBtn>
+        <ErrorBtn>
+          <Link style={{color: "white"}} to="/">Return to the homepage</Link>
+        </ErrorBtn>
     </ErrorWrapper>
   )
 }
@@ -62,17 +61,4 @@ const ErrorMessage = styled.h2`
     font-size: 18px;
     padding-top: 11px;
   }
-`
-const ErrorBtnTxt = styled.h3`
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: ${colors.backgroundLight};
-  padding-top: 0;
-  margin:0!important
-    &:hover {
-      text-decoration: underline;
-    }
-  @media screen and (max-width: 768px) {
-        font-size: 18px
-    }
 `

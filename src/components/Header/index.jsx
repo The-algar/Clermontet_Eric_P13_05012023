@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LoginFirstName } from '../../utils/style/Slinks'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import * as connectionActions from '../../data/connexion';
 
 /**show Header
@@ -36,21 +36,25 @@ export default function Header() {
         <NavContainerItem>
           {isConnected?(
             <>
-          <LoginFirstName className="NavContainerItem"> {/* to="/profile"  */}
-            <i className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
-            {firstName}
+          <LoginFirstName> 
+            <Link className="NavContainerItem" to="/profile">
+              <i className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
+              {firstName}
+            </Link>
           </LoginFirstName>
-          <StyledSignOut 
-            to="/" className="NavContainerItem" onClick={()=>signOut()}>
-            <i className="fa fa-sign-out" style={{ marginRight: '0.3rem' }}></i>
-            Sign Out
-          </StyledSignOut></>
+          <StyledSignOut>
+            <Link to="/" className="NavContainerItem" onClick={()=>signOut()}>
+              <i className="fa fa-sign-out" style={{ marginRight: '0.3rem' }}></i>
+              Sign Out
+            </Link>
+          </StyledSignOut>
+          </>
           ):( 
-          <StyledSignIn 
-            to="/login" className="NavContainerItem">
-            <i 
-              className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
-            Sign In
+          <StyledSignIn>
+            <Link to="/login" className="NavContainerItem">
+              <i className="fa fa-user-circle" style={{ marginRight: '0.3rem' }}></i>
+              Sign In
+            </Link>
           </StyledSignIn>
           )
 
@@ -60,36 +64,32 @@ export default function Header() {
     </header>
   )
 }
-const NavContainer = styled.nav`
+const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   min-width: 300px;
   align-items: center;
   padding: 5px 20px;
-  &.a {
-    font-weight: bold;
-    font-size: 2rem;
-    color: #2c3e50;
-  }
-  // &:hover {
-  //   text-decoration: underline;
-  // }
   @media screen and (max-width: 768px) {
     font-weight: 200;
     font-size: 0.9rem;
   }
 `
-const NavContainerItem = styled(Link)`
+const NavContainerItem = styled.nav`
   text-decoration: none;
   font-weight: bold;
   margin-right: 0.7rem;
   &.a {
+    font-weight: bold;
     font-size: 2rem;
-  // &:hover {
-  //   text-decoration: underline;
-  // }
+    color: #2c3e50;
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 `
-const StyledSignOut = styled(Link)`
+const StyledSignOut = styled.button`
   background-color: ${colors.backgroundLight}; 
   border: none;
   font-weight: bold;
@@ -102,7 +102,7 @@ const StyledSignOut = styled(Link)`
   } 
 `
 
-const StyledSignIn = styled(Link)`
+const StyledSignIn = styled.button`
   background-color: ${colors.backgroundLight}; 
   border: none;
   font-weight: bold;

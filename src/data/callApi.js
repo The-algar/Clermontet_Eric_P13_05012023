@@ -28,7 +28,7 @@ export const axiosProfile = async(token) =>{
         console.log(response.data.body)
 
         return response.data.body;
-    }catch(e){
+    } catch(e) {
         console.log(e);
     }
 }

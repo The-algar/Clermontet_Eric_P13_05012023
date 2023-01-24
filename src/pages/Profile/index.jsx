@@ -83,7 +83,7 @@ export default function UserProfile() {
 }
 
 const StyledDarkBg = styled.div`
-  background-color: ${colors.DarkBg};
+  background-color: ${colors.darkBg};
 `
 const MainProfil = styled(StyledDarkBg)`
   min-width: 350px;
@@ -100,7 +100,7 @@ const MainProfil = styled(StyledDarkBg)`
     }  
 `
 const StyledHeader = styled.div`
-  color: #fff;
+  color: ${colors.backgroundLight};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,8 +135,8 @@ const FormSecondLine = styled.div`
   width: 5rem;
   height: 2rem;
   margin: 0.5rem;
-  color: rgb(255, 255, 255);
-  background-color: #00bc77;
+  color: ${colors.backgroundLight};
+  background-color: ${colors.transactionBtn};
   }
 `
 const FormFirstLine = styled.div`

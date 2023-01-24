@@ -38,7 +38,7 @@ const connectionSlice= createSlice({
                     firstName:null,
                     lastName:null,
                 }
-            }else{
+            } else {
                 return{
                     ...state,
                     email:null,

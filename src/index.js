@@ -6,13 +6,14 @@ import './index.css'
 import Home from './pages/Home'
 import Error from './pages/Error'
 import Footer from './components/Footer'
-import SignIn from './pages/Login';
-import UserProfile from './pages/Profile';
+import SignIn from './pages/Login'
+import UserProfile from './pages/Profile'
 import reportWebVitals from './reportWebVitals'
-import store from './store.js';
-import {Provider} from 'react-redux';
+import store from './store.js'
+import {Provider} from 'react-redux'
 
 
+// eslint-disable-next-line no-undef
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>

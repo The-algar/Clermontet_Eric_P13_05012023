@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Bank-API Projet 13 Openclassrooms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![made-with-create-react-app](https://user-images.githubusercontent.com/75996200/166201532-1a68d09e-7f75-4106-ba2c-ac047ccc4cc4.svg)
+![use-axios](https://user-images.githubusercontent.com/75996200/166201677-9f6d8af6-5134-4926-9132-057a3d379d10.svg)
+![use-mongodb](https://user-images.githubusercontent.com/75996200/166201811-8e97d0f4-db0e-451c-a7b0-99e97c048645.svg)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+![20220502094028](https://user-images.githubusercontent.com/75996200/166201146-35e7c8a8-3f52-4c54-bc4f-53c91f0a74ba.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Prérequis
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [NodeJS](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [MongoBB Community Server](https://www.mongodb.com/fr-fr)
 
-### `npm test`
+## Installer et exécuter le projet
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Installation et lancement du _back-end_`
 
-### `npm run build`
+- Cloner le repo du _back-end_ : `git clone https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API`
+- En se plaçant dans ce repo du _back-end_, installer ses dépendances : `npm install`
+- Lancer le _back-end_ sur le port 3001 : `npm run dev:server`
+- Remplir la base de données avec deux utilisateurs: `npm run populate-db`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Base de donnée
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Les 2 utilisateurs enregistrés dans la base de donnée:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tony Stark
 
-### `npm run eject`
+- First Name: `Tony`
+- Last Name: `Stark`
+- Email: `tony@stark.com`
+- Password: `password123`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Steve Rogers
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- First Name: `Steve`,
+- Last Name: `Rogers`,
+- Email: `steve@rogers.com`,
+- Password: `password456`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `Installation et lancement du _front-end_ Argent Bank`
 
-## Learn More
+- Cloner le présent repo du _front-end_: `git clone https://github.com/The-algar/Clermontet_Eric_P13_05012023`
+- En se plaçant dans ce repo du _front-end_, installer ses dépendances : `npm install`
+- Lancer le _front-end_ sur le port 3000 : `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Accéder à la documentation swagger du _front-end_ Argent Bank`
+- https://app.swaggerhub.com/apis/The-algar/argent_bank_api_documentation/1.0.0

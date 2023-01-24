@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components'
 import { SignInBtn } from '../../utils/style/Slinks'
-// import colors from '../../utils/style/colors'
+import colors from '../../utils/style/colors'
 
 /**Export Sign-in Modal
  * 
@@ -76,7 +76,7 @@ export default function SignIn(){
 }
 
 const Main = styled.main`
-  background-color: #12002b;
+  background-color: ${colors.darkBg};
   min-width: 350px;
   padding-top: 2rem;
   height: 80vh;
@@ -84,7 +84,7 @@ const Main = styled.main`
 
 const SignInContent = styled.section`
   box-sizing: border-box;
-  background-color: white;
+  background-color: ${colors.backgroundLight};
   width: 300px;
   margin: 0 auto;
   padding: 2rem;

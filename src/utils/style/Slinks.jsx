@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import colors from './colors'
 
@@ -86,7 +86,7 @@ export const EditBtn = styled.button`
     font-weight: bold;
   }
 `
-export const SignInBtn = styled(Link)`
+export const SignInBtn = styled.button`
   display: block;
   text-align: center;
   width: 13.75rem;
@@ -103,7 +103,7 @@ export const SignInBtn = styled(Link)`
     text-decoration: underline;
   }
 `
-export const LoginFirstName = styled(Link)`
+export const LoginFirstName = styled.button`
   background-color: ${colors.backgroundLight}; 
   border: none;
   font-weight: bold;
