@@ -54,5 +54,5 @@ Les 2 utilisateurs enregistrés dans la base de donnée:
 
 ### `Accéder à la documentation swagger Argent Bank V1`
 
-- https://app.swaggerhub.com/apis-docs/The-algar/argent_bank_api_documentation/1.1.0
+- https://app.swaggerhub.com/apis-docs/The-algar/argent_bank_api_documentation/1.2.0
 
